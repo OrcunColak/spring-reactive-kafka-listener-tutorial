@@ -3,7 +3,12 @@ spring:
     bootstrap-servers: localhost:9092
     consumer:
       group-id: reactive-group
+      auto-offset-reset: earliest  # Read from the beginning if no offset is stored
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    admin:
+      properties:
+        bootstrap.servers: localhost:9092
+    
     topic:
       name: reactive-topic
